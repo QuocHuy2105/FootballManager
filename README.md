@@ -93,3 +93,75 @@ bash
     mysql -u root -p < football_manager_init.sql
 
 Không cần tạo database thủ công - mọi thứ đã nằm trong script.
+
+Bước 3 : Cấu hình thông tin trong application.properties
+
+    url=jdbc:mysql://localhost:3306/football_manager?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username=root
+    password=yourpassword
+    driver=com.mysql.cj.jdbc.Driver
+
+# Cấu trúc thư mục
+    project/
+     ├── src/
+     │    └── main/
+     │         ├── java/
+     │         │    └── N23DCCN058/
+     │         │          └── fm/   
+     │         │               ├── Main/
+     │         │               ├── dao/
+     │         │               ├── exception/
+     │         │               ├── model/
+     │         │               ├── service/
+     │         │               ├── ui/
+     │         │               │    ├── dialog/
+     │         │               │    ├── frame/
+     │         │               │    └── panel/
+     │         │               └── util/
+     │         │
+     │         └── resources/
+     │              ├── application.properties  
+     │              └── com/ 
+     │                   └── fm/
+     │                        ├── icons/
+     │                        └── pictures/
+     │
+     ├── football_manager_init.sql         (file tạo và khởi tạo CSDL)
+     ├── pom.xml                           (cấu hình Maven)
+     └── README.md
+
+# Cách chạy chương trình
+
+Nếu chạy bằng Mavan :
+
+bash
+
+    mvn clean install
+    mvn exec:java
+
+Nếu chạy từ IDE (NetBeans):
+  1. Mở project.
+  2. Chắc chắn đã config MySQL Connector/J.
+  3. Nhấn Run Project (Shift + F6).
+
+# Cơ sở dữ liệu
+
+Cơ sở dữ liệu gồm các bảng : 
+
+• TEAMS - thông tin đội bóng.
+• PLAYERS - thông tin cầu thủ.
+• REFEREES - thông tin trọng tài.
+• MATCHES - thông tin trận đấu.
+• MATCH_EVENTS - các sự kiện trong trận đấu.
+• MATCH_TEAMS - danh sách đội bóng tham gia vào trận đấu.
+• MATCH_PLAYERS - danh sách cầu thủ tham gia vào trận đấu.
+• SYSTEM_CONFIG - cấu hình hệ thống.
+
+File SQL
+    • Tên file : football_manager_init.sql
+    • Chức năng :
+        • Tạo database
+        • Tạo toàn bộ các table, trigger, fuction, stored procedure.
+
+
+
