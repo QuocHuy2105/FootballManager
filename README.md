@@ -9,7 +9,7 @@ Chương trình cung cấp các chức năng trọng yếu như: quản lý đ�
 # Công nghệ sử dụng
 Hệ thống được xây dựng và vận hành dựa trên các công nghệ sau:
 
-• Hệ điều hành:  
+• Hệ điều hành:
 Windows 11.
 Dùng làm môi trường phát triển và chạy ứng dụng.
 
