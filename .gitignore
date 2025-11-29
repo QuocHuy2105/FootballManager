@@ -1,0 +1,21 @@
+# Thư mục Build và Biên dịch
+/target/
+/bin/
+*.class
+
+# Cấu hình IDE (IntelliJ, VS Code, Eclipse)
+.idea/
+.vscode/
+.settings/
+.project
+.classpath
+
+# File và Folder Cấu hình Nhạy cảm/Bí mật
+.env
+*.log
+*.tmp
+application-secret.properties
+
+# File Hệ điều hành
+.DS_Store
+Thumbs.db
