@@ -73,9 +73,10 @@ Phần này hướng dẫn chi tiết cách thiết lập và khởi chạy dự
 
 Bước 1 : Clone dự án
 
-git clone https://github.com/your-username/football-tournament-manager.git
+bash
 
-cd football-tournament-manager
+    git clone https://github.com/your-username/football-tournament-manager.git
+    cd football-tournament-manager
 
 Bước 2 : Cài đặt cơ sở dữ liệu
 
@@ -86,7 +87,8 @@ Cách 1 - Dùng MySQL Workbench
        -> Database football_manager sẽ được tạo tự động
 
 Cách 2 - Dùng MySQl CLI
-  bash 
+  
+bash 
   
     mysql -u root -p < football_manager_init.sql
 
