@@ -168,11 +168,11 @@ File SQL
 
 • Tên file : football_manager_init.sql
     
-• Chức năng :
+Chức năng :
 
-   • Tạo database.
+• Tạo database.
     
-   • Tạo toàn bộ các table, trigger, fuction, stored procedure.
+• Tạo toàn bộ các table, trigger, fuction, stored procedure.
 
 
 
