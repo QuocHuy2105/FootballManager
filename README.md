@@ -9,25 +9,25 @@ Chương trình cung cấp các chức năng trọng yếu như: quản lý đ�
 # Công nghệ sử dụng
 Hệ thống được xây dựng và vận hành dựa trên các công nghệ sau:
 
-• Hệ điều hành
-Windows 11
+• Hệ điều hành:  
+Windows 11.
 Dùng làm môi trường phát triển và chạy ứng dụng.
 
-• Ngôn ngữ lập trình
-Java Development Kit (JDK) 23
+• Ngôn ngữ lập trình:
+Java Development Kit (JDK) 23.
 Cung cấp bộ công cụ biên dịch và xử lý mã nguồn Java.
 Yêu cầu chạy: Java Runtime Environment (JRE) 24.
 
-• Môi trường phát triển (IDE)
-Apache NetBeans IDE 26
+• Môi trường phát triển (IDE):
+Apache NetBeans IDE 26.
 Hỗ trợ soạn thảo mã nguồn, quản lý dự án Maven và debugging.
 Không có yêu cầu bổ sung cho runtime.
 
-• Hệ quản trị cơ sở dữ liệu
-MySQL Server 8.0
+• Hệ quản trị cơ sở dữ liệu:
+MySQL Server 8.0.
 Lưu trữ và xử lý dữ liệu của hệ thống.
 
-• Thư viện kết nối CSDL
+• Thư viện kết nối CSDL:
 MySQL Connector/J (JDBC) 8.0.
 Thư viện JDBC giúp Java tương tác với MySQL.
 Yêu cầu: Phải được cấu hình trong classpath của dự án.
@@ -35,36 +35,36 @@ Yêu cầu: Phải được cấu hình trong classpath của dự án.
 # Tính năng chính
 Ứng dụng cung cấp đầy đủ các chức năng phục vụ công tác tổ chức và quản lý giải đấu bóng đá theo thể lệ cố định, bao gồm:
 
-• Quản lý đội bóng
-Thêm, sửa, xóa đội bóng
-Tìm kiếm, quản lý cầu thủ của đội bóng
-Quản lý thông tin liên quan đến đội (tên đội, huấn luyện viên,...)
+• Quản lý đội bóng:
+Thêm, sửa, xóa đội bóng.
+Tìm kiếm, quản lý cầu thủ của đội bóng.
+Quản lý thông tin liên quan đến đội (tên đội, huấn luyện viên,...).
 
-• Quản lý cầu thủ
-Thêm, sửa, xóa cầu thủ
+• Quản lý cầu thủ:
+Thêm, sửa, xóa cầu thủ.
 Tìm kiếm, xem thông só cầu thủ,...
-Quản lý thông tin liên quan đến cầu thủ (tên cầu thủ, số áo, ngày sinh,..)
+Quản lý thông tin liên quan đến cầu thủ (tên cầu thủ, số áo, ngày sinh,..).
 
-• Quản lý trọng tài
-Thêm, xóa, sửa thông tin trọng tài
-Gán trọng tài cho từng trận đấu
+• Quản lý trọng tài:
+Thêm, xóa, sửa thông tin trọng tài.
+Gán trọng tài cho từng trận đấu.
 
-• Quản lý trận đấu
-Tạo lịch thi đấu
-Thêm danh sách đội bóng và cầu thủ tham gia trận đấu
-Ghi sự kiện cho trận đấu
-Theo dõi trạng thái trận đấu
+• Quản lý trận đấu:
+Tạo lịch thi đấu.
+Thêm danh sách đội bóng và cầu thủ tham gia trận đấu.
+Ghi sự kiện cho trận đấu.
+Theo dõi trạng thái trận đấu.
 
-• Ghi nhận sự kiện trong trận
-Bàn thắng, thay người, phạm lỗi, thẻ vàng, thẻ đỏ,..
+• Ghi nhận sự kiện trong trận:
+Bàn thắng, thay người, phạm lỗi, thẻ vàng, thẻ đỏ,...
 
-• Bảng xếp hạng tự động
-Tự động tính điểm dựa trên kết quả trận đấu
+• Bảng xếp hạng tự động:
+Tự động tính điểm dựa trên kết quả trận đấu.
 Xếp hạng theo điểm, hiệu số, số bàn thắng.
-Đảm bảo tuân thủ đúng thể lệ riêng của chương trình
-Cập nhật theo thời gian thực sau mỗi trận
+Đảm bảo tuân thủ đúng thể lệ riêng của chương trình.
+Cập nhật theo thời gian thực sau mỗi trận.
 
-• Import, export thông tin giải đáu
-Import danh sách đội bóng, cầu thủ, trọng tài
-Export danh sách đội bóng, cầu thủ, kết quả trận đấu, danh sách sự kiện,...
+• Import, export thông tin giải đáu:
+Import danh sách đội bóng, cầu thủ, trọng tài.
+Export danh sách đội bóng, cầu thủ, kết quả trận đấu, danh sách sự kiện,....
 
