@@ -149,19 +149,28 @@ Nếu chạy từ IDE (NetBeans):
 Cơ sở dữ liệu gồm các bảng : 
 
 • TEAMS - thông tin đội bóng.
+
 • PLAYERS - thông tin cầu thủ.
+
 • REFEREES - thông tin trọng tài.
+
 • MATCHES - thông tin trận đấu.
+
 • MATCH_EVENTS - các sự kiện trong trận đấu.
+
 • MATCH_TEAMS - danh sách đội bóng tham gia vào trận đấu.
+
 • MATCH_PLAYERS - danh sách cầu thủ tham gia vào trận đấu.
+
 • SYSTEM_CONFIG - cấu hình hệ thống.
 
 File SQL
-    • Tên file : football_manager_init.sql
-    • Chức năng :
-        • Tạo database
-        • Tạo toàn bộ các table, trigger, fuction, stored procedure.
+
+• Tên file : football_manager_init.sql
+    
+• Chức năng :
+    • Tạo database
+    • Tạo toàn bộ các table, trigger, fuction, stored procedure.
 
 
 
