@@ -86,7 +86,8 @@ Cách 1 - Dùng MySQL Workbench
        -> Database football_manager sẽ được tạo tự động
 
 Cách 2 - Dùng MySQl CLI
-bash 
-  mysql -u root -p < football_manager_init.sql
+  bash 
+  
+    mysql -u root -p < football_manager_init.sql
 
 Không cần tạo database thủ công - mọi thứ đã nằm trong script.
