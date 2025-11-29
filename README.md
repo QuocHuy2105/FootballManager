@@ -28,7 +28,8 @@ MySQL Server 8.0
 Lưu trữ và xử lý dữ liệu của hệ thống.
 
 • Thư viện kết nối CSDL
-MySQL Connector/J (JDBC) 8.0
+MySQL Connector/J (JDBC) 8.0.
+
 Thư viện JDBC giúp Java tương tác với MySQL.
 Yêu cầu: Phải được cấu hình trong classpath của dự án.
 
