@@ -68,3 +68,25 @@ Cập nhật theo thời gian thực sau mỗi trận.
 Import danh sách đội bóng, cầu thủ, trọng tài.
 Export danh sách đội bóng, cầu thủ, kết quả trận đấu, danh sách sự kiện,....
 
+# Cài đặt & Setup
+Phần này hướng dẫn chi tiết cách thiết lập và khởi chạy dự án từ đầu.
+
+Bước 1 : Clone dự án
+
+git clone https://github.com/your-username/football-tournament-manager.git
+
+cd football-tournament-manager
+
+Bước 2 : Cài đặt cơ sở dữ liệu
+
+Cách 1 - Dùng MySQL Workbench
+  1. Mở Workbend
+  2. Mở file football_manager_init.sql
+  3. Nhấn Run (Ctrl + Shift + Enter)
+       -> Database football_manager sẽ được tạo tự động
+
+Cách 2 - Dùng MySQl CLI
+bash 
+  mysql -u root -p < football_manager_init.sql
+
+Không cần tạo database thủ công - mọi thứ đã nằm trong script.
