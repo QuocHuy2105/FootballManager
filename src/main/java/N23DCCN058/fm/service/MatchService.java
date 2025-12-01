@@ -40,7 +40,7 @@ public class MatchService {
         if(match == null)
             throw new ValidationException("Trận đấu không hợp lệ!");
         if(match.getRefereeId() == null)
-            throw new ValidationException("Id trọng tài không được để trống!");
+            throw new ValidationException("Trọng tài không được để trống!");
         if(match.getMatchDate() == null)
             throw new ValidationException("Ngày diễn ra trận đấu không hợp lệ hoặc đang trống!");
         if(match.getMatchStatus() == null)
@@ -122,7 +122,7 @@ public class MatchService {
     
     public List<Match> searchMatchByRefereeId(int refereeId){
         if(refereeId <= 0)
-            throw new ValidationException("Id trọng tài không hợp lệ!");
+            throw new ValidationException("Trọng tài không hợp lệ hoặc đang trống!");
         
         try {
             MatchDAO dao = new MatchDAO();
