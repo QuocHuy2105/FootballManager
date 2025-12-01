@@ -81,9 +81,6 @@ public class PlayerService {
         
         if(player == null)
             throw new ValidationException("Cầu thủ truyền vào không hợp lệ!");
-        
-//        if(player.getPlayerName() == null || player.getPlayerName().trim().isEmpty())
-//            throw new ValidationException("Tên cầu thủ không được để trống!");
 
         try {
             NameValidationChecking.check(player.getPlayerName(), "Tên cầu thủ");
@@ -95,7 +92,10 @@ public class PlayerService {
             throw new ValidationException("Ngày sinh của cầu thủ không hợp lệ hoặc đang trống");
         
         if(player.getJerseyNumber() == null)
-            throw new ValidationException("Số áo của cầu thủ không được để trống");
+            throw new ValidationException("Số áo không hợp lệ hoặc đang trống");
+        
+        if(player.getJerseyNumber() <= 0 || player.getJerseyNumber() > 99)
+            throw new ValidationException("Số áo phải có giá trị từ 1 đến 99");
         
         try {
             if(dao.existsJerseyNumberOfTeam(player.getTeamId(), player.getJerseyNumber()))
@@ -158,7 +158,10 @@ public class PlayerService {
             throw new ValidationException("Team id của cầu thủ không được để trống!");
         
         if(player.getJerseyNumber() == null)
-            throw new ValidationException("Số áo của cầu thủ không được để trống");
+            throw new ValidationException("Số áo không hợp lệ hoặc đang trống");
+        
+        if(player.getJerseyNumber() <= 0 || player.getJerseyNumber() > 99)
+            throw new ValidationException("Số áo phải có giá trị từ 1 đến 99");
         
         try {
             Player p = dao.getById(player.getPlayerId());
@@ -254,7 +257,10 @@ public class PlayerService {
                 errors.add(new ErrorDetail(row, "Ngày sinh cầu thủ không được để trống"));
             }
             
-            if(player.getJerseyNumber() == null || 
+            if(player.getJerseyNumber() == null || player.getJerseyNumber() <= 0 || player.getJerseyNumber() > 99)
+                errors.add(new ErrorDetail(row, "Số áo cầu thủ đang trống hoặc không hợp lệ (1 -> 99)"));
+            
+            if(player.getJerseyNumber() != null &&
                     (soAo.containsKey(player.getTeamId()) 
                         && soAo.get(player.getTeamId()).contains(player.getJerseyNumber()))){
                 errors.add(new ErrorDetail(row, "Số áo của cầu thủ đã tồn tại trong đội"));

@@ -47,7 +47,7 @@ public class TrongTaiPanel extends javax.swing.JPanel {
         
         col.getColumn(0).setPreferredWidth(50); // Id 
         col.getColumn(1).setPreferredWidth(330); // Tên trọng tài
-        col.getColumn(2).setPreferredWidth(300); // Số điện thoại
+        col.getColumn(2).setPreferredWidth(335); // Số điện thoại
         
         for (int i = 0; i < col.getColumnCount(); i++) {
             col.getColumn(i).setResizable(false);
