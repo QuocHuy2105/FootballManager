@@ -67,14 +67,7 @@ public class TeamService {
     public boolean addTeam(Team t){
         if(t == null) 
             throw new ValidationException("Đội bóng không hợp lệ!");
-        
-//        if(t.getTeamName() == null || t.getTeamName().isEmpty()) 
-//            throw new ValidationException("Tên đội bóng không được để trống!");
-//        if(t.getDepartment() == null || t.getDepartment().isEmpty()) 
-//            throw new ValidationException("Khoa không được để trống!");
-//        if(t.getCoachName() == null || t.getDepartment().isEmpty()) 
-//            throw new ValidationException("Tên huấn luyện viên không được để trống!");
-   
+
         try {
             NameValidationChecking.check(t.getTeamName(), "Tên đội bóng");
             NameValidationChecking.check(t.getDepartment(), "Khoa");
@@ -84,6 +77,11 @@ public class TeamService {
         }
         
         t = TeamNormalizer.normalize(t);
+        
+        Set<String> allTeamName = getAllTeamName();
+        
+        if(allTeamName.contains(t.getTeamName()))
+            throw new ValidationException("Tên đội bóng đã tồn tại!");
         
         try{
             TeamDAO dao = new TeamDAO();
@@ -98,13 +96,6 @@ public class TeamService {
         if(t == null) 
             throw new ValidationException("Đội bóng không hợp lệ!");
         
-//        if(t.getTeamName() == null || t.getTeamName().isEmpty()) 
-//            throw new ValidationException("Tên đội bóng không được để trống!");
-//        if(t.getDepartment() == null || t.getDepartment().isEmpty()) 
-//            throw new ValidationException("Khoa không được để trống!");
-//        if(t.getCoachName() == null || t.getDepartment().isEmpty()) 
-//            throw new ValidationException("Tên huấn luyện viên không được để trống!");
-
         try {
             NameValidationChecking.check(t.getTeamName(), "Tên đội bóng");
             NameValidationChecking.check(t.getDepartment(), "Khoa");
@@ -114,6 +105,11 @@ public class TeamService {
         }
         
         t = TeamNormalizer.normalize(t);
+        
+        Set<String> allTeamName = getAllTeamName();
+        
+        if(allTeamName.contains(t.getTeamName()))
+            throw new ValidationException("Tên đội bóng đã tồn tại!");
         
         try{
             TeamDAO dao = new TeamDAO();

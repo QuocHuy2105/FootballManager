@@ -253,11 +253,19 @@ public class CapNhapThongTinCauThuDialog extends javax.swing.JDialog {
         return isConfirm;
     }
     
+    private boolean isAllNumber(String str){
+        if(txtSoAo.getText().trim().equals("")) return false;
+        for(char c : str.toCharArray()){
+            if(!Character.isDigit(c)) return false;
+        }
+        return true;
+    }
+    
     public Player getPlayerFromTextFields(){
         
         String name = txtTenCauThu.getText();
         Date dob = txtNgaySinh.getDate() == null ? null : new java.sql.Date(txtNgaySinh.getDate().getTime());
-        Integer jerseyNumber = txtSoAo.getText().trim().equals("") ? null : Integer.valueOf(txtSoAo.getText());
+        Integer jerseyNumber = !isAllNumber(txtSoAo.getText()) ? null : Integer.valueOf(txtSoAo.getText());
         PlayerPosition position = PlayerPosition.fromString((String) cbViTri.getSelectedItem());
         String tenDoiBong = (String) cbTenDoi.getSelectedItem();
         int idx;

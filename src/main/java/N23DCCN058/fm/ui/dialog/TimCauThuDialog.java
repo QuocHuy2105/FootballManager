@@ -12,6 +12,7 @@ import N23DCCN058.fm.service.TeamService;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
@@ -227,6 +228,13 @@ public class TimCauThuDialog extends javax.swing.JDialog {
         return isConfirm;
     }
     
+    private boolean isAllNumber(String str){
+        for(char c : str.toCharArray()){
+            if(!Character.isDigit(c)) return false;
+        }
+        return true;
+    }
+    
     public Player getPlayerFromTextFields(){
         String name = txtTenCauThu.getText();
         Date dob = txtNgaySinh.getDate() == null ? null : new java.sql.Date(txtNgaySinh.getDate().getTime());
@@ -247,6 +255,11 @@ public class TimCauThuDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_txtTenCauThuActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        if(!isAllNumber(txtSoAo.getText())){
+            JOptionPane.showMessageDialog(this, "Số áo không hợp lệ!");
+            return;
+        }
+        
         isConfirm = true;
         dispose();
     }//GEN-LAST:event_btnThemActionPerformed

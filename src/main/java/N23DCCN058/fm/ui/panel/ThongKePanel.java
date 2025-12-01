@@ -305,9 +305,9 @@ public class ThongKePanel extends javax.swing.JPanel {
             
             TableColumnModel colHome = tb.getColumnModel();
         
-            colHome.getColumn(0).setPreferredWidth(10); 
+            colHome.getColumn(0).setPreferredWidth(20); 
             colHome.getColumn(1).setPreferredWidth(200);
-            colHome.getColumn(2).setPreferredWidth(100);
+            colHome.getColumn(2).setPreferredWidth(90);
             colHome.getColumn(3).setPreferredWidth(140);
             colHome.getColumn(4).setPreferredWidth(150);
 
