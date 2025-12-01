@@ -115,7 +115,7 @@ public class TimTranTheoTenTrongTaiDialog extends javax.swing.JDialog {
         DefaultComboBoxModel<Object> model = new DefaultComboBoxModel<>();
         model.addAll(lst);
         cbTenTrongTai.setModel((javax.swing.ComboBoxModel) model);
-        cbTenTrongTai.setSelectedIndex(0);
+        cbTenTrongTai.setSelectedIndex(-1);
     }
     
     public boolean isConfirm(){

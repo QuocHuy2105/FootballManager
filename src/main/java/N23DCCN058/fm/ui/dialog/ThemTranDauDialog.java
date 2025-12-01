@@ -171,13 +171,13 @@ public class ThemTranDauDialog extends javax.swing.JDialog {
         DefaultComboBoxModel<Object> model = new DefaultComboBoxModel<>();
         model.addAll(lst);
         cbTenTrongTai.setModel((javax.swing.ComboBoxModel) model);
-        cbTenTrongTai.setSelectedIndex(0);
+        cbTenTrongTai.setSelectedIndex(-1);
     }
     
     public Match getMatch(){
         Referee referee = (Referee) cbTenTrongTai.getSelectedItem();
         Date date  = dcNgayDienRa.getDate() == null ? null : new java.sql.Date(dcNgayDienRa.getDate().getTime());
-        return new Match(referee.getRefereeId(), date, MatchStatus.CHUA_DIEN_RA);
+        return new Match(referee != null ? referee.getRefereeId() : null, date, MatchStatus.CHUA_DIEN_RA);
     }
         
     public boolean isConfirm(){

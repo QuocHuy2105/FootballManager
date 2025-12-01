@@ -507,7 +507,7 @@ public class TranDauPanel extends javax.swing.JPanel {
         try {
             MatchService mService = new MatchService();
             Referee referee = dialog.getTrongTai();
-            List<Match> lst = mService.searchMatchByRefereeId(referee.getRefereeId());
+            List<Match> lst = mService.searchMatchByRefereeId(referee != null ? referee.getRefereeId() : -1);
             hienDanhSach(lst);
         } catch(ValidationException e){
             JOptionPane.showMessageDialog(this, e.getMessage(), "Dữ liệu không hợp lệ", JOptionPane.WARNING_MESSAGE);
