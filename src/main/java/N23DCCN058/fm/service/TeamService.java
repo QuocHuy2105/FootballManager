@@ -108,7 +108,8 @@ public class TeamService {
         
         Set<String> allTeamName = getAllTeamName();
         
-        if(allTeamName.contains(t.getTeamName()))
+        Team team = getTeamById(t.getTeamId());
+        if(!team.getTeamName().equalsIgnoreCase(t.getTeamName()) && allTeamName.contains(t.getTeamName()))
             throw new ValidationException("Tên đội bóng đã tồn tại!");
         
         try{
