@@ -12,6 +12,7 @@ import N23DCCN058.fm.exception.ValidationException;
 import N23DCCN058.fm.model.EventType;
 import static N23DCCN058.fm.model.EventType.SUBSTITUTION_IN;
 import static N23DCCN058.fm.model.EventType.SUBSTITUTION_OUT;
+import N23DCCN058.fm.model.Match;
 import N23DCCN058.fm.model.MatchEvents;
 import N23DCCN058.fm.model.MatchPlayers;
 import N23DCCN058.fm.model.Player;
@@ -22,8 +23,10 @@ import N23DCCN058.fm.util.EventTimeValidationChecking;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -261,11 +264,20 @@ public class MatchEventService {
             MatchEventDAO meDAO = new MatchEventDAO();
             List<MatchPlayers> matches = mpDAO.getByPlayerId(playerId);
             
+            MatchService mService = new MatchService();
+            Set<Integer> finishedMatchesId = new HashSet<>();
+            
+            List<Match> finishedMatches = mService.getAllFinishedMatch();
+            
+            for(Match match : finishedMatches)
+                finishedMatchesId.add(match.getMatchId());
+            
             int totalTime = 0;
             final int MATCH_DURATION = 60;
             
             for(MatchPlayers match : matches){
                 int matchId = match.getMatchId();
+                if(!finishedMatchesId.contains(matchId)) continue;
                 PlayerRole playerRole = match.getPlayerRole();
                 if(playerRole == null) continue;
                 
