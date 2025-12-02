@@ -103,7 +103,7 @@ public class PlayerDAO{
             String msg = DBErrorTranslator.translate(e);
             throw new DatabaseException(msg, e);
         }  
-
+        
     }
     
     public boolean add(Player player){

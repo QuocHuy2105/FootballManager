@@ -6,6 +6,7 @@ package N23DCCN058.fm.dao;
 
 import N23DCCN058.fm.exception.DatabaseException;
 import N23DCCN058.fm.model.MatchPlayers;
+import N23DCCN058.fm.model.MatchStatus;
 import N23DCCN058.fm.model.PlayerPosition;
 import N23DCCN058.fm.model.PlayerRole;
 import N23DCCN058.fm.util.DBErrorTranslator;
@@ -111,12 +112,18 @@ public class MatchPlayerDAO {
     }
     
     public int countTotalPlayedMatches(Integer playerId){
-        String sql = "Select count(*) as total_matches from match_players where player_id = ?";
+        String sql = """
+                    Select count(*) as total_matches 
+                    from match_players as mp 
+                    join matches as m on mp.match_id = m.match_id 
+                    where mp.player_id = ? and m.match_status = ?
+                    """;
         try (
             Connection conn = DBConnectionPool.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
                 ){
             ps.setInt(1, playerId);
+            ps.setString(2, MatchStatus.DA_DIEN_RA.name());
             ResultSet rs = ps.executeQuery();
             return rs.next() ? rs.getInt("total_matches") : 0;
         } catch (SQLException e){
@@ -126,13 +133,19 @@ public class MatchPlayerDAO {
     }
     
     public int countTotalStartingPlayedMatches(Integer playerId){
-        String sql = "Select count(*) as total_matches from match_players where player_id = ? and player_role = ?";
+        String sql = """
+                     Select count(*) as total_matches 
+                     from match_players as mp
+                     join matches as m on mp.match_id = m.match_id 
+                     where mp.player_id = ? and mp.player_role = ? and m.match_status = ?
+                     """;
         try (
             Connection conn = DBConnectionPool.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
                 ){
             ps.setInt(1, playerId);
             ps.setString(2, PlayerRole.STARTING.name());
+            ps.setString(3, MatchStatus.DA_DIEN_RA.name());
             ResultSet rs = ps.executeQuery();
             return rs.next() ? rs.getInt("total_matches") : 0;
         } catch (SQLException e){

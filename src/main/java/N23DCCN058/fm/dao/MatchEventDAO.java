@@ -7,6 +7,7 @@ package N23DCCN058.fm.dao;
 import N23DCCN058.fm.exception.DatabaseException;
 import N23DCCN058.fm.model.EventType;
 import N23DCCN058.fm.model.MatchEvents;
+import N23DCCN058.fm.model.MatchStatus;
 import N23DCCN058.fm.util.DBErrorTranslator;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -183,7 +184,12 @@ public class MatchEventDAO {
     }
     
     public int countGoalsOfPlayer(Integer playerId){
-        String sql = "Select count(*) as total_goals from match_events where player_id = ? and event_type in (?, ?)";
+        String sql = """
+                    Select count(*) as total_goals 
+                    from match_events as me
+                    join matches as m on me.match_id = m.match_id
+                    where me.player_id = ? and me.event_type in (?, ?) and m.match_status = ?
+                  """;
         try (
             Connection conn = DBConnectionPool.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -191,6 +197,7 @@ public class MatchEventDAO {
             ps.setInt(1, playerId);
             ps.setString(2, EventType.GOAL.name());
             ps.setString(3, EventType.PENALTY_GOAL.name());
+            ps.setString(4, MatchStatus.DA_DIEN_RA.name());
             ResultSet rs = ps.executeQuery();
             return rs.next() ? rs.getInt("total_goals") : 0;
         } catch (SQLException e){
@@ -200,13 +207,19 @@ public class MatchEventDAO {
     }
     
     public int countPenaltyGoalsOfPlayer(Integer playerId){
-        String sql = "Select count(*) as total_goals from match_events where player_id = ? and event_type = ?";
+        String sql = """
+                     Select count(*) as total_goals 
+                     from match_events as me
+                    join matches as m on me.match_id = m.match_id
+                     where me.player_id = ? and me.event_type = ? and m.match_status = ?
+                    """;
         try (
             Connection conn = DBConnectionPool.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
                 ){
             ps.setInt(1, playerId);
             ps.setString(2, EventType.PENALTY_GOAL.name());
+            ps.setString(3, MatchStatus.DA_DIEN_RA.name());
             ResultSet rs = ps.executeQuery();
             return rs.next() ? rs.getInt("total_goals") : 0;
         } catch (SQLException e){
@@ -216,13 +229,19 @@ public class MatchEventDAO {
     }
     
     public int countOwnGoalsOfPlayer(Integer playerId){
-        String sql = "Select count(*) as total_own_goals from match_events where player_id = ? and event_type = ?";
+        String sql = """
+                     Select count(*) as total_own_goals 
+                     from match_events as me
+                    join matches as m on me.match_id = m.match_id
+                     where me.player_id = ? and me.event_type = ? and m.match_status = ?
+                    """;
         try (
             Connection conn = DBConnectionPool.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
                 ){
             ps.setInt(1, playerId);
             ps.setString(2, EventType.OWN_GOAL.name());
+            ps.setString(3, MatchStatus.DA_DIEN_RA.name());
             ResultSet rs = ps.executeQuery();
             return rs.next() ? rs.getInt("total_own_goals") : 0;
         } catch (SQLException e){
@@ -232,13 +251,19 @@ public class MatchEventDAO {
     }
     
     public int countFoulsOfPlayer(Integer playerId){
-        String sql = "Select count(*) as total_fouls from match_events where player_id = ? and event_type = ?";
+        String sql = """
+                     Select count(*) as total_fouls 
+                     from match_events as me
+                    join matches as m on me.match_id = m.match_id
+                     where me.player_id = ? and me.event_type = ? and m.match_status = ?
+                    """;
         try (
             Connection conn = DBConnectionPool.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
                 ){
             ps.setInt(1, playerId);
             ps.setString(2, EventType.FOUL.name());
+            ps.setString(3, MatchStatus.DA_DIEN_RA.name());
             ResultSet rs = ps.executeQuery();
             return rs.next() ? rs.getInt("total_fouls") : 0;
         } catch (SQLException e){
@@ -248,13 +273,19 @@ public class MatchEventDAO {
     }
     
     public int countYellowCardsOfPlayer(Integer playerId){
-        String sql = "Select count(*) as total_yellow_cards from match_events where player_id = ? and event_type = ?";
+        String sql = """
+                     Select count(*) as total_yellow_cards 
+                     from match_events as me
+                    join matches as m on me.match_id = m.match_id
+                     where me.player_id = ? and me.event_type = ? and m.match_status = ?
+                    """;
         try (
             Connection conn = DBConnectionPool.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
                 ){
             ps.setInt(1, playerId);
             ps.setString(2, EventType.YELLOW_CARD.name());
+            ps.setString(3, MatchStatus.DA_DIEN_RA.name());
             ResultSet rs = ps.executeQuery();
             return rs.next() ? rs.getInt("total_yellow_cards") : 0;
         } catch (SQLException e){
@@ -264,13 +295,19 @@ public class MatchEventDAO {
     }
     
     public int countRedCardsOfPlayer(Integer playerId){
-        String sql = "Select count(*) as total_red_cards from match_events where player_id = ? and event_type = ?";
+        String sql = """
+                     Select count(*) as total_red_cards 
+                     from match_events as me
+                    join matches as m on me.match_id = m.match_id
+                     where me.player_id = ? and me.event_type = ? and m.match_status = ?
+                    """;
         try (
             Connection conn = DBConnectionPool.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
                 ){
             ps.setInt(1, playerId);
             ps.setString(2, EventType.RED_CARD.name());
+            ps.setString(3, MatchStatus.DA_DIEN_RA.name());
             ResultSet rs = ps.executeQuery();
             return rs.next() ? rs.getInt("total_red_cards") : 0;
         } catch (SQLException e){
