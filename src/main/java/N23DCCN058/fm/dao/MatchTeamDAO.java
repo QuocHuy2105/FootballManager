@@ -109,12 +109,18 @@ public class MatchTeamDAO {
     }
     
     public int countTotalPlayedMatchedOfTeam(Integer teamId){
-        String sql = "Select count(*) as total_match from match_teams where team_id = ?";
+        String sql = """
+                     Select count(*) as total_match 
+                     from match_teams as mt
+                     join matches as m on mt.match_id = m.match_id
+                     where mt.team_id = ? and m.match_status = ?
+                     """;
         try (
             Connection conn = DBConnectionPool.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
                 ){
             ps.setInt(1, teamId);
+            ps.setString(2, MatchStatus.DA_DIEN_RA.name());
             ResultSet rs = ps.executeQuery();
             return rs.next() ? rs.getInt("total_match") : 0;
         } catch (SQLException e){
