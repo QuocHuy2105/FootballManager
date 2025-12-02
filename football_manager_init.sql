@@ -48,7 +48,7 @@ CREATE TABLE PLAYERS (
 		ON UPDATE CASCADE
         ON DELETE CASCADE,
      
-	CONSTRAINT chk_jeysey_number
+	CONSTRAINT chk_jersey_number
 		CHECK (jersey_number BETWEEN 1 AND 99)
         
 )
