@@ -78,7 +78,7 @@ public class GhiSuKienPanel extends javax.swing.JPanel {
         
         TableColumnModel col = tbSuKien.getColumnModel();
         
-        col.getColumn(0).setPreferredWidth(0); // Id 
+        col.getColumn(0).setPreferredWidth(20); // Id 
         col.getColumn(1).setPreferredWidth(165); // Tên cầu thủ
         col.getColumn(2).setPreferredWidth(100); // Vị trí
         col.getColumn(3).setPreferredWidth(165);  // Tên đội
@@ -429,7 +429,7 @@ public class GhiSuKienPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for(MatchEvents event : events){
             if(event.getPlayerId() == null){
-                model.addRow(new Object[]{event.getEventId(), "", "", event.getEventType().getVietnamese(), event.getEventTime()});
+                model.addRow(new Object[]{event.getEventId(), "", "", "", event.getEventType().getVietnamese(), event.getEventTime()});
                 continue;
             }
             Player player;
